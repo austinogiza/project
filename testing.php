@@ -426,10 +426,11 @@ echo $_SESSION['password'];
 			$.ajax ({
 				url: "processes/fetch_city.php",
 				type: "POST",
-				data: 'state_id',
+				data: 'state_id'+val,
+				dataType: "text",
 				success: function(data)
 				{
-					#('#cities_id').html(date);
+					$('#cities_id').html(data);
 				}
 
 

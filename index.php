@@ -80,7 +80,7 @@
 		</div>
 
 
-<div id="new" style="color:black; width: 50%; height: 20px; background-color:black; position: absolute; top: 250px; left: 50px;"></div>
+<div id="new" style="color:black; width: 50%; height: 20px; background-color:black; position: absolute; top: 50px; left: 130px;"></div>
 </div></div>
 </body>
 
