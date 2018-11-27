@@ -68,6 +68,7 @@ if(mysqli_num_rows($query) > 0 )
 		<link rel="icon" type="image/x-con" href="image/favicon.ico"  sizes="32x32">
 	<title>Main Project Home</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script src="js/jquery-3.3.1.min.js"></script>
 	</head>
 <body>
 
