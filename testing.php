@@ -231,45 +231,12 @@ echo "selected";
 			<span class="regis">City:</span><select class="<?php
     if( !isset($_SESSION['cities_id']) && isset($_SESSION['error']) )
 echo 'error';
-?>" id="cities_id"
-			name="cities_id">
+?>" id="cities"
+			name="cities">
 
-				<option <?php if (!isset($_SESSION['cities_id'])) 
+				<option id="load_below_me" value=""></option>
+				<option value="1">PLEASE SELECT CITY</option>
 
-			{
-
-				echo "selected";
-			}
-			
-			?>
-
-				value="">SELECT CITY</option>
-				<?php
-				for($a=0; $a<count($cities_id); $a++)
-
-				{
-					?>
-             <option <?php  if (isset($_SESSION['cities_id'])) 
-
-             {
-             if ($_SESSION['cities_id']==$state_id[$a]) 
-             {
-             
-echo "selected";
-             }
-
-             }
-
-
-             ?> value="<?php echo $cities_id[$a] ?>">
-             	
-             <?php echo $city_name[$a]?>	
-             </option>
-				
-				<?php
-			}
-
-				?>
 						</select>
 		</label>
 </div>
@@ -427,11 +394,11 @@ echo $_SESSION['password'];
 			$.ajax ({
 				url: "processes/fetch_city.php",
 				type: "POST",
-				data: 'state_id'+val,
+				data: {city:state_id},
 				dataType: "text",
 				success: function(data)
 				{
-					$('#cities_id').html(data);
+					$('#load_below_me').after(data);
 				}
 
 

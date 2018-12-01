@@ -28,5 +28,11 @@
 	<label><a href="addcities.php"  class="logoutstaff">Record Sales</a></label>
 </div>
 <div id="viewstaff">
+	<label><a href="profile.php"  class="logoutstaff">View Profile</a></label>
+</div>
+<div id="viewstaff">
+	<label><a href="testing.php"  class="logoutstaff">View testing</a></label>
+</div>
+<div id="viewstaff">
 	<label><a href="processes/logout_process.php"  class="logoutstaff">Logout</a></label>
 </div>

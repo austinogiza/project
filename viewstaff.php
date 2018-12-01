@@ -4,6 +4,7 @@ if (isset($_SESSION['staff_name']))
 {
 require_once("config/config.php"); 
 
+
 	$query=mysqli_query($connection,
 
 	"select * from staff
