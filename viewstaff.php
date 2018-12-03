@@ -116,7 +116,8 @@ border-collapse: collapse;
 	<tbody>
 		<?php
 
-		for ($a=0; $a < count($staff_name); $a++) { 
+		for ($a=0; $a < count($staff_name); $a++) 
+		{ 
 
 ?>		<tr>
 			<td><?php echo $a+1; ?></td>

@@ -69,6 +69,7 @@ if(mysqli_num_rows($query) > 0 )
 	<title>Main Project Home</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 	</head>
 <body>
 
@@ -182,10 +183,10 @@ echo $_SESSION['staff_name'];
 		</label>
 </div>
 <div><label>
-			<span class="regis">State:</span><select class="<?php
+			<span class="regis">State:</span><select id="state_id" class="<?php
     if( !isset($_SESSION['state_id']) && isset($_SESSION['error']) )
 echo 'error';
-?>" id="state_id"
+?>" 
 			name="state_id">
 
 				<option <?php if (!isset($_SESSION['state_id'])) 
@@ -234,8 +235,8 @@ echo 'error';
 ?>" id="cities"
 			name="cities">
 
-				<option id="load_below_me" value=""></option>
-				<option value="1">PLEASE SELECT CITY</option>
+			
+				<option value="1" id="load_below_me">PLEASE SELECT CITY</option>
 
 						</select>
 		</label>
@@ -386,24 +387,34 @@ echo $_SESSION['password'];
 </div>
 <script>
 	$(document).ready(()=> {
-
-		$('#state_id').change(()=>{
-
-			var state_id = $(this).val();
-
+	$('#state_id').change(()=>{
+    	var city_id = $(state_id).val();
+    	
+    
 			$.ajax ({
 				url: "processes/fetch_city.php",
 				type: "POST",
-				data: {city:state_id},
+				data: {city: city_id},
 				dataType: "text",
 				success: function(data)
 				{
+			
 					$('#load_below_me').after(data);
+
+					
+				
+
 				}
+
 
 
 			});
 		});
+
+	$('#state_id').change(()=>{
+		$('.delete').remove();
+	});
+
 	});
 
 
