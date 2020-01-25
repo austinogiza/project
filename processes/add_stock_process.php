@@ -51,7 +51,7 @@ header("location:../addstock.php");
 
 else {
 //save user details to database
-$date= date('Y-m-d H:i:s');
+$date = date('Y-m-d H:i:s');
 	
 
 	mysqli_query($connection, 

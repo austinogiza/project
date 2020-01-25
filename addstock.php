@@ -257,9 +257,7 @@ $('#form1').submit();
 			$.ajax({
 
 				type: "POST", 
-				data: {
-					item: itm
-				},
+				data: {item: itm },
 				url: "processes/add_stock_process.php",
 				error: ()=>{ alert("there was a problem");
 				},

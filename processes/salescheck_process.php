@@ -8,7 +8,7 @@ $item=$_POST['item'];
 if ($item!='') 
 {
 	$query=mysqli_query($connection, "SELECT item_id from items WHERE item_name LIKE 
-		'$item%' LIMIT 1 ") or die('There Was An Error');
+		'%$item%' LIMIT 1 ") or die('There Was An Error');
 	if (mysqli_num_rows($query)==1 )
 	{
 		 while ($rows= mysqli_fetch_assoc($query)) 

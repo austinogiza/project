@@ -332,7 +332,7 @@ echo $_SESSION['username'];
 </div>
 <div><label>
 		<span class="regis">Password:</span><input type="Password" name="password" placeholder="Password" class="<?php
-    if( !isset($_SESSION['staff_name']) && isset($_SESSION['error']) )
+    if( !isset($_SESSION['password']) && isset($_SESSION['error']) )
 echo 'error';
 
 			?>" value="<?php 

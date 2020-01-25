@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("config/config.php"); 
+require_once("config/config.php");
 
 //state query
 
@@ -14,12 +14,12 @@ if(mysqli_num_rows($query)>0 )
 
 	  {
 	  	$state_id[]=$row['state_id'];
-        $state_name[]=$row['state_name']; 
+        $state_name[]=$row['state_name'];
 	}
 
 	}
 // cities query
-require_once("config/config.php"); 
+require_once("config/config.php");
 
 
 $query=mysqli_query($connection, "select * from cities")
@@ -32,12 +32,12 @@ if(mysqli_num_rows($query)>0 )
 
 	  {
 	  	$cities_id[]=$row['cities_id'];
-        $city_name[]=$row['city_name']; 
+        $city_name[]=$row['city_name'];
 	}
 
 	}
 
-require_once("config/config.php"); 
+require_once("config/config.php");
 
 //role query
 
@@ -52,12 +52,12 @@ if(mysqli_num_rows($query) > 0 )
 
 	  {
 	  	$role_id[]=$row ['role_id'];
-        $role_name[] = $row ['role_name']; 
+        $role_name[] = $row ['role_name'];
 	}
 
 	}
 
-	
+
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +75,7 @@ if(mysqli_num_rows($query) > 0 )
 
 
 	<style type="text/css">
-		
+
 
 		span.regis
 
@@ -83,10 +83,10 @@ if(mysqli_num_rows($query) > 0 )
 			display: inline-block;
 			width: 150px;
 
-		} 
+		}
 
 
-	</style>	
+	</style>
 
 
 	<div id="header">
@@ -96,7 +96,7 @@ if(mysqli_num_rows($query) > 0 )
 
 	<div id="menu">
 		<div id="nav">
-	<?php 
+	<?php
 
 	if (isset($_SESSION['error'])) {
 ?>
@@ -110,9 +110,9 @@ unset($_SESSION['message']);
 </ul>
 
 		</div>
-		
+
 <div id="social" >
-			
+
 <span><a href="facebook.com" target="_blank"><img src="images/facebook.png" /></a></span>
 <span><a href="twitter.com" target="_blank"><img src="images/twitter.png" /></a></span>
 
@@ -120,17 +120,17 @@ unset($_SESSION['message']);
 
 
 	</div>
-	
+
 
 <div id="form">
-	
+
 	<form method="POST" action="processes/testing_process.php">
 		<div><label>
 			<span class="regis">Staff Name:</span><input type="text" name="staff_name" placeholder="Staff Name" class="<?php
     if( !isset($_SESSION['staff_name']) && isset($_SESSION['error']) )
 echo 'error';
 
-			?>" value="<?php 
+			?>" value="<?php
 
 			if(isset($_SESSION['staff_name']))
 			{
@@ -147,7 +147,7 @@ echo $_SESSION['staff_name'];
     if( !isset($_SESSION['email']) && isset($_SESSION['error']) )
 echo 'error';
 
-			?>" value="<?php 
+			?>" value="<?php
 
 			if(isset($_SESSION['email']))
 			{
@@ -159,7 +159,7 @@ echo $_SESSION['email'];
 		</label>
 </div>
 <div><label>
-			<span class="regis">Phone:</span><input type="text" name="phone" placeholder="Phone Number" value="<?php 
+			<span class="regis">Phone:</span><input type="text" name="phone" placeholder="Phone Number" value="<?php
 
 			if(isset($_SESSION['phone']))
 			{
@@ -167,10 +167,11 @@ echo $_SESSION['phone'];
 			}
 
 			?>"  class="<?php
-    if( !isset($_SESSION['staff_name']) && isset($_SESSION['error']) )
-echo 'error';
+    if(!isset($_SESSION['staff_name']) && isset($_SESSION['error']))
 
-			?>" value="<?php 
+	echo 'error';
+
+			?>" value="<?php
 
 			if(isset($_SESSION['staff_name']))
 			{
@@ -186,16 +187,16 @@ echo $_SESSION['staff_name'];
 			<span class="regis">State:</span><select id="state_id" class="<?php
     if( !isset($_SESSION['state_id']) && isset($_SESSION['error']) )
 echo 'error';
-?>" 
+?>"
 			name="state_id">
 
-				<option <?php if (!isset($_SESSION['state_id'])) 
+				<option <?php if (!isset($_SESSION['state_id']))
 
 			{
 
 				echo "selected";
 			}
-			
+
 			?>
 
 				value="">SELECT STATE</option>
@@ -204,12 +205,12 @@ echo 'error';
 
 				{
 					?>
-             <option <?php  if (isset($_SESSION['state_id'])) 
+             <option <?php  if (isset($_SESSION['state_id']))
 
              {
-             if ($_SESSION['state_id']==$state_id[$a]) 
+             if ($_SESSION['state_id']==$state_id[$a])
              {
-             
+
 echo "selected";
              }
 
@@ -217,10 +218,10 @@ echo "selected";
 
 
              ?> value="<?php echo $state_id[$a] ?>">
-             	
-             <?php echo $state_name[$a]?>	
+
+             <?php echo $state_name[$a]?>
              </option>
-				
+
 				<?php
 			}
 
@@ -235,7 +236,7 @@ echo 'error';
 ?>" id="cities"
 			name="cities">
 
-			
+
 				<option value="1" id="load_below_me">PLEASE SELECT CITY</option>
 
 						</select>
@@ -246,7 +247,7 @@ echo 'error';
     if( !isset($_SESSION['role_id']) && isset($_SESSION['error']) )
 echo 'error';
 
-			?>" 
+			?>"
 			name="role_id">
 
 				<option <?php if (!isset($_SESSION['role_id']))
@@ -263,18 +264,18 @@ echo 'error';
 				{
 					?>
 
-				<option <?php  if (isset($_SESSION['role_id'])) 
+				<option <?php  if (isset($_SESSION['role_id']))
 				{
-				
 
-				if ($_SESSION['role_id']==$role_id[$a]) 
+
+				if ($_SESSION['role_id']==$role_id[$a])
 				{
 
 					{
-					
+
 					echo "selected";}
-					
-					}	
+
+					}
 				}
 
 				?>
@@ -324,9 +325,9 @@ echo 'error';
 				?>
 							 value="1">
 					Admin Staff
-					
+
 				</option>
-			
+
 						</select>
 
 		</label>
@@ -336,7 +337,7 @@ echo 'error';
     if( !isset($_SESSION['username']) && isset($_SESSION['error']) )
 echo 'error';
 
-			?>" value="<?php 
+			?>" value="<?php
 
 			if(isset($_SESSION['username']))
 			{
@@ -344,7 +345,7 @@ echo $_SESSION['username'];
 			}
 
 			?>"
-			 value="<?php 
+			 value="<?php
 
 			if(isset($_SESSION['username']))
 			{
@@ -360,7 +361,7 @@ echo $_SESSION['username'];
     if( !isset($_SESSION['staff_name']) && isset($_SESSION['error']) )
 echo 'error';
 
-			?>" value="<?php 
+			?>" value="<?php
 
 			if(isset($_SESSION['password']))
 			{
@@ -369,7 +370,7 @@ echo $_SESSION['password'];
 
 			?>"
 
-			 value="<?php 
+			 value="<?php
 
 			if(isset($_SESSION['password']))
 			{
@@ -389,8 +390,7 @@ echo $_SESSION['password'];
 	$(document).ready(()=> {
 	$('#state_id').change(()=>{
     	var city_id = $(state_id).val();
-    	
-    
+
 			$.ajax ({
 				url: "processes/fetch_city.php",
 				type: "POST",
@@ -398,11 +398,11 @@ echo $_SESSION['password'];
 				dataType: "text",
 				success: function(data)
 				{
-			
+
 					$('#load_below_me').after(data);
 
-					
-				
+
+
 
 				}
 

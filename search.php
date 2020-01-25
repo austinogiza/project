@@ -16,6 +16,7 @@ else{
 
 	<link rel="stylesheet" type="text/css" href="css/dashboard.css">
 <meta charset="utf-8">
+<link rel="stylesheet" href="css/search.css">
 <title>My Home</title>
 </head>
 
@@ -57,13 +58,23 @@ else{
 </div>
 
 <div style="float: left;">
-	<p>You are in the admin panel. Please use the admin panel on your left to maximize your experience</p>
+			<div class="form">
+	<div class="input">
+	<span class="group">
+		
+		<button>Search</button><input type="text" name="search" class="search" placeholder="Search By Customer Name">
+	</span>	
 
-	<button onclick="runeffect()" style="padding: 15px 25px;">I am me</button>	
 
-	<p id="effect">I am the effect</p>	
+	</div>
 
 
+</div>
+<br />
+<div id="result">
+	
+
+</div>
 
 </div>
 
@@ -72,31 +83,31 @@ else{
 <footer></footer>
 </body>
 </html>
-
-<script type="text/javascript">
+<script>
 	
-/*// old method 
-function runeffect(arg1) {
-	// body...
-	alert("There was a click " + arg1);
-}
-*/
+	$(document).ready(()=>{
+		$(".search").keyup(()=>{
+			var txt =$(this).val();
 
-//  new method
-
-/* let runeffect =(arg1)=>
+			if (txt!='') {
 
 
-alert("There was a click "+ arg1)
-*/
+			}
+			else{
 
-//old selection method
+				$('#result').html('');
+				$.ajax({
+					url: "processes/fetch_search.php",
+				type: "POST",
+				data: {search: txt},
+				dataType: "text",
+				success: function(data)
+				{
+					$('#result').html(data);
+				}
 
-runeffect=()=>
-{
-
-let el=document.getElementById("effect");
-el.style.padding="50px 70px";
-el.style.color="red";
-}
+				});
+			}
+		});
+	});
 </script>

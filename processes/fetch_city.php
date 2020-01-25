@@ -8,7 +8,7 @@ $city=$_POST['city'];
 
 if($city!='')
 {
-	$query=mysqli_query($connection, "SELECT city_name,cities_id from cities WHERE state_id ='$city'") or die('There Was An Error');
+	$query=mysqli_query($connection, "SELECT  city_name,cities_id from cities WHERE state_id ='$city'") or die('There Was An Error');
 	if (mysqli_num_rows($query)>0)
 	{
 		
